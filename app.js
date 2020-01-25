@@ -1,7 +1,12 @@
 const http = require('http')
-const app = require('express')()
+const express = require('express')
+const app = express()
 const server = http.createServer(app)
 const io = require('socket.io')(server)
+const cors = require('cors')
+
+app.use(express.static('build'))
+app.use(cors())
 
 let clicks = 0
 
